@@ -1,3 +1,4 @@
-node_modules/*
-.idea/*
-*.pem
+.idea/
+bin/*.pem
+node_modules/
+
