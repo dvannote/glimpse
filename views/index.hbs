@@ -1,2 +1,11 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+
+<script>
+    var socket = io.connect('https://localhost:3000', {secure: true});
+    socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+    });
+</script>

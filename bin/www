@@ -6,6 +6,10 @@ var app = require('../app');
 var privateKey  = fs.readFileSync('key.pem');
 var certificate = fs.readFileSync('cert.pem');
 var credentials = {key: privateKey, cert: certificate};
-var httpsServer = https.createServer(credentials, app);
+var httpsServer = https.createServer(credentials, app).listen(3000);
+var io = require('socket.io')(httpsServer);
+var ioRoutes = require('../routes/ioRoutes');
 
-httpsServer.listen(3000);
+io.on('connection', ioRoutes.ioRoute);
+
+
