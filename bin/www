@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
+var certs = require('./getCertificate');
 var https = require('https');
 var app = require('../app');
-var privateKey  = fs.readFileSync('key.pem');
-var certificate = fs.readFileSync('cert.pem');
-var credentials = {key: privateKey, cert: certificate};
-var httpsServer = https.createServer(credentials, app).listen(3000);
+
+var httpsServer = https.createServer(certs.credentials, app).listen(3000);
 var io = require('socket.io')(httpsServer);
 var ioRoutes = require('../routes/ioRoutes');
 
