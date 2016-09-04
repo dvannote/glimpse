@@ -1,0 +1,25 @@
+<h1>Packery - fluid sizing</h1>
+
+<div class="grid">
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--width2 grid-item--height2"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height2"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+</div>
+
+
+<script>
+    $('.grid').packery({
+        itemSelector: '.grid-item',
+        percentPosition: true
+    });
+</script>

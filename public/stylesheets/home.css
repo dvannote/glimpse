@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+
+/* force scrollbar, prevents initial gap */
+html { overflow-y: scroll; }
+
+body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+.grid {
+    background: #DDD;
+}
+
+/* clear fix */
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- .element-item ---- */
+
+/* 5 columns, percentage width */
+.grid-item {
+    float: left;
+    width: 20%;
+    height: 100px;
+    background: #C09;
+    border: 2px solid hsla(0, 0%, 0%, 0.5);
+}
+
+.grid-item--width2 { width: 40%; }
+.grid-item--height2 { height: 200px; }
