@@ -12,13 +12,11 @@
     </div>
 </nav>
 
-<div id="loginModal" class="modal fade" role="dialog">
+<div id="loginModal"  class="modal fade" role="dialog">
     <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Greets!</h4>
-        </div>
         <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Login</h4>
             <form class="form-signin">
                 <input type="text" class="form-control" name="username" placeholder="email address" required="" autofocus="" /> <br/>
                 <input type="password" class="form-control" name="password" placeholder="password" required=""/>
@@ -28,24 +26,58 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginButton">login</button>
             </form>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
     </div>
 </div>
 
-<!--<script>-->
-<!--$(document).ready(function(){-->
-<!--$("#login").click(function(){-->
-<!--$("#loginModal").modal();-->
-<!--});-->
-<!--});-->
-<!--</script>-->
+<div id="signupModal" class="modal fade">
+    <div class="modal-dialogue">
+        <div class="modal-content">
+            <div class="modal-header">
+                Thanks For Signing Up!
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="form-signin">
+                    <input type="text" class="form-control" name="username"  placeholder="username" required/><br/>
+                    <input type="text" class="form-control" name="firstName" placeholder="first name" required/><br/>
+                    <input type="text" class="form-control" name="lastName"  placeholder="last name" required/><br/>
+                    <input type="email" class="form-control" name="password"  placeholder="email" required/>
+                    <input type="password" class="form-control" name="username" placeholder="password" required/>
+                    <input type="password" class="form-control" name="password" placeholder="confirm password" required/>
+                    <div class="fileUpload btn">
+                        <span>choose profile pic</span>
+                        <input id="imgInp" type="file" class="upload" />
+                    </div>
+                    <img id="profilePic" src="#" class="img-circle"/> <br/>
+                    <button type="submit">
+                        <i class="fa fa-check fa-3x"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     var socket = io.connect('https://localhost:3000', {secure: true});
     socket.on('news', function (data) {
         console.log(data);
         socket.emit('my other event', { my: 'data' });
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profilePic').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp").change(function(){
+        readURL(this);
     });
 </script>
