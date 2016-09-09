@@ -10,125 +10,109 @@ body {
     height:100% !important;
 }
 
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.navbar-default {
+    background-color: #00001c;
+    color: #11b6c1;
+    font-family: 'Varela Round', sans-serif !important;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #11b6c1;
+    border-radius: 1px;
+}
+
+.buttonContainer {
+    text-align: center;
+    margin: auto;
+}
+
+.fa-check{
+    color: #11b6c1;
+}
+
+.fa-check:hover {
+    color: #00001c;
+}
+
+.fa-arrow-right{
+    color: #11b6c1;
+}
+
+.fa-arrow-right:hover {
+    color: #00001c;
+}
+
+form input {
+    border-right: 0;
+    border-top: 0;
+    border-left: 0;
+    border-bottom-color: #00001c;
+    color: #11b6c1;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+form {
+    background: white;
+    padding: 15px;
+    height: 100%;
+    font-family: 'Varela Round', sans-serif;
+}
+
+nav {
+   background: #00001c;
+}
+a:focus, a:hover {
+    color: white;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover{
+    background-color: transparent;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: transparent;
+    border-color: white;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+span {
+    background: #00001c;
+}
+
+.dropdown-menu {
+    padding-bottom: 0px;
+    border: #11b6c1;
+}
+
 .wrapper {
     margin:0;
     padding:0;
     float: none;
 }
 
-.modal-header {
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #11b6c1;
-    color: white;
-    font-size: 20px;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-#gradient
-{
-    width: 100%;
-    height: 100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;}
-
-.form-signin {
-    max-width: 380px;
-    padding: 15px 35px 45px;
-    margin: 0 auto;
-    background-color: white;
-    border: none;
-    border-radius: 0 !important;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-    margin-bottom: 30px;
-    margin-left: 20px;
-    text-align: left;
-}
-.form-signin .checkbox {
-    font-weight: normal;
-}
-.form-signin .form-control {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #ed3a0e;
-    background: white;
-}
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-.form-signin input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    color: #00001c;
-    background: white;
-    border-radius: 0 !important;
-    border-bottom-color: #00001c;
-    border-left-color: #00001c;
-    border-right: 0;
-    border-top: 0;
-}
-.form-signin input[type="password"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    color: #00001c;
-    background: white;
-    border-radius: 0 !important;
-    border-bottom-color: #00001c;
-    border-left-color: #00001c;
-    border-right: 0;
-    border-top: 0;
-}
-
-.form-signin input[type="email"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    color: #00001c;
-    background: white;
-    border-radius: 0 !important;
-    border-bottom-color: #00001c;
-    border-left-color: #00001c;
-    border-right: 0;
-    border-top: 0;
-}
-
-#loginButton {
-
-}
-
 .landingLi {
     text-align: left;
-}
-
-#loginModal {
-    width: 20%;
-    position: fixed;
-    margin-top: 10%;
-    margin-left: 40%;
-    margin-right: 50%;
-}
-
-#signupModal {
-    width: 20%;
-    position: fixed;
-    margin-top: 10%;
-    margin-left: 40%;
-    margin-right: 50%;
 }
 
 .fileUpload {
@@ -136,6 +120,7 @@ body {
     overflow: hidden;
     background: #11b6c1;
     color: white;
+    font-family: 'Varela Round', sans-serif;
 }
 .fileUpload input.upload {
     position: absolute;
@@ -152,6 +137,10 @@ body {
 .img-circle{
     max-width: 100px;
     min-height: 100px;
+}
+
+input[type=file]{
+    color:transparent;
 }
 
 input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -172,6 +161,8 @@ input:-moz-placeholder { /* Firefox 4 - 18 */
 input:focus{
     box-shadow: #11b6c1;
 }
+
+
 
 
 
