@@ -3,12 +3,17 @@
 <head>
     <title>{{title}}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/login.css' />
 
     <!--JAVASCRIPTS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
 
@@ -78,6 +83,25 @@
 </head>
 <body>
 {{{body}}}
+=======
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+    <script src="/angular/app.js"></script>
+
+    <script>
+        var socket = io.connect('https://localhost:3000', {secure: true});
+        socket.on('news', function (data) {
+            console.log(data);
+            socket.emit('my other event', { my: 'data' });
+        });
+    </script>
+
+</head>
+<body ng-app="glimpse">
+<div ui-view>
+    {{{body}}}
+</div>
+>>>>>>> 286a424327e040053a49e7153d3fca0f7e87da27
 </body>
 </html>
 
