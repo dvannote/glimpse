@@ -19,6 +19,21 @@ button {
     outline:none;
 }
 
+#discoverHeading {
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #D15FEE, 0 0 30px #D15FEE, 0 0 40px  #D15FEE, 0 0 55px  #D15FEE, 0 0 75px #D15FEE;
+}
+
+#appreciateHeading {
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ed3a0e, 0 0 30px  #ed3a0e, 0 0 40px  #ed3a0e, 0 0 55px  #ed3a0e, 0 0 75px #ed3a0e;
+}
+
+#focusHeading {
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #11b6c1, 0 0 30px  #11b6c1, 0 0 40px  #11b6c1, 0 0 55px  #11b6c1, 0 0 75px #11b6c1;
+}
+
 .navbar-default {
     color: #11b6c1;
     font-family: 'Varela Round', sans-serif !important;
@@ -76,16 +91,27 @@ form input {
 
 form {
     background: white;
-    padding: 15px;
+    padding: 25px;
     height: 100%;
     font-family: 'Varela Round', sans-serif;
+}
+
+.left {
+    display: inline-block;
+    padding: 20px;
+    padding-right: 40px;
+    width: 350px;
 }
 
 nav {
    background: black;
 }
 a:focus, a:hover {
-    color: white;
+    color: white !important;
+}
+
+a {
+    color: #D15FEE !important;
 }
 
 .nav>li>a:focus,
@@ -99,7 +125,7 @@ a:focus, a:hover {
 }
 
 .jumbotron{
-    height: 50%;
+    height: 15%;
     color: white;
     background-color: black;
     font-family: 'Scope One', serif;
@@ -107,7 +133,7 @@ a:focus, a:hover {
 }
 
 h1{
-    padding: 50px;
+    padding-top: 50px;
     display: block;
     margin: 0 auto;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00001c, 0 0 30px  #00001c, 0 0 40px  #00001c, 0 0 55px  #00001c, 0 0 75px #00001c;
@@ -132,6 +158,10 @@ span {
     padding: 10px;
 }
 
+#realTimeBox {
+    padding: 40px;
+}
+
 #locationPic {
     float: right;
     padding: 20px;
@@ -146,6 +176,16 @@ span {
     margin:0;
     padding:0;
     float: none;
+}
+
+#divWrapper {
+    width: 100%;
+    color: white;
+    background-color: black;
+    font-family: 'Scope One', serif;
+    font-weight: bold;
+    padding-top: 50px;
+    overflow: hidden; /* will contain if #first is longer than #second */
 }
 
 img {
@@ -220,8 +260,21 @@ input:focus{
 
 .parallax2 {
     /* The image used */
-    background-image: url('https://static.pexels.com/photos/7543/pexels-photo.jpeg');
+    background-image: url('http://allinallnews.com/wp-content/uploads/2015/05/Google-Maps.png');
 
+    /* Full height */
+    height: 50%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    /* The image used */
+background-image: url("../images/timelapse.jpg");
     /* Full height */
     height: 50%;
 
