@@ -17,6 +17,7 @@
     "grunt": "^0.4.0",
     "hbs": "~4.0.0",
     "jasmine": "^2.4.1",
+    "masonry-layout": "^4.1.1",
     "morgan": "~1.7.0",
     "mysql": "^2.11.1",
     "openssl": "^1.1.0",

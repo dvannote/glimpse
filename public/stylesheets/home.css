@@ -8,7 +8,13 @@ body { font-family: sans-serif; }
 /* ---- grid ---- */
 
 .grid {
-    background: #DDD;
+    background: white;
+    width: 80%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 /* clear fix */
@@ -21,13 +27,16 @@ body { font-family: sans-serif; }
 /* ---- .element-item ---- */
 
 /* 5 columns, percentage width */
+.grid-sizer,
+.grid-item {
+    width: 250px;
+}
+
 .grid-item {
     float: left;
-    width: 20%;
-    height: 100px;
-    background: #C09;
+    height: 250px;
+    background-image: url("../images/roo.jpg");
     border: 2px solid hsla(0, 0%, 0%, 0.5);
 }
 
-.grid-item--width2 { width: 40%; }
-.grid-item--height2 { height: 200px; }
+button { font-size: 20px; }
