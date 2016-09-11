@@ -4,10 +4,118 @@ html{
 }
 
 body {
-    background: #eee !important;
+    background: black !important;
     padding: 0px;
     margin: 0px;
     height:100% !important;
+}
+
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.navbar-default {
+    color: #11b6c1;
+    font-family: 'Varela Round', sans-serif !important;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #11b6c1;
+    border-radius: 1px;
+}
+
+.buttonContainer {
+    text-align: center;
+    margin: auto;
+}
+
+.fa-check{
+    color: #11b6c1;
+}
+
+.fa-check:hover {
+    color: #00001c;
+}
+
+.fa-arrow-right{
+    color: #11b6c1;
+}
+
+.fa-arrow-right:hover {
+    color: #00001c;
+}
+
+form input {
+    border-right: 0;
+    border-top: 0;
+    border-left: 0;
+    border-bottom-color: #00001c;
+    color: #11b6c1;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+form {
+    background: white;
+    padding: 15px;
+    height: 100%;
+    font-family: 'Varela Round', sans-serif;
+}
+
+nav {
+   background: black;
+}
+a:focus, a:hover {
+    color: white;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover{
+    background-color: transparent;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: transparent;
+    border-color: white;
+}
+
+.jumbotron{
+    height: 100%;
+    color: white;
+    background-color: black;
+    font-family: 'Scope One', serif;
+}
+
+h1{
+    padding: 50px;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00001c, 0 0 30px  #00001c, 0 0 40px  #00001c, 0 0 55px  #00001c, 0 0 75px #00001c;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+span {
+    background: #00001c;
+}
+
+.dropdown-menu {
+    padding-bottom: 0px;
+    border: #11b6c1;
 }
 
 .wrapper {
@@ -16,61 +124,36 @@ body {
     float: none;
 }
 
-#gradient
-{
-    width: 100%;
-    height: 100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;}
-
-.form-signin {
-    max-width: 380px;
-    padding: 15px 35px 45px;
-    margin: 0 auto;
-    background-color: rgba(255,255, 231,.0);
-    border: none;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-    margin-bottom: 30px;
-    margin-left: 20px;
+.landingLi {
     text-align: left;
 }
-.form-signin .checkbox {
-    font-weight: normal;
+
+.fileUpload {
+    margin: auto;
+    overflow: hidden;
+    background: #11b6c1;
+    color: white;
+    font-family: 'Varela Round', sans-serif;
 }
-.form-signin .form-control {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #ed3a0e;
-    background: #ffffe7;
-}
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-.form-signin input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    color: #ed3a0e;
-    background: #ffffe7;
-}
-.form-signin input[type="password"] {
-    margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    color: #ed3a0e;
-    background: #ffffe7;
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
-#loginButton {
-    background: #11b6c1;
+.img-circle{
+    max-width: 100px;
+    min-height: 100px;
+}
+
+input[type=file]{
+    color:transparent;
 }
 
 input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -91,3 +174,38 @@ input:-moz-placeholder { /* Firefox 4 - 18 */
 input:focus{
     box-shadow: #11b6c1;
 }
+
+.parallax {
+    /* The image used */
+    background-image: url('http://28oa9i1t08037ue3m1l0i861.wpengine.netdna-cdn.com/wp-content/uploads/2016/06/DAY_TO_NIGHT_CONEY_ISLAND_20110816.jpg');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    /* The image used */
+    background-image: url('https://static.pexels.com/photos/7543/pexels-photo.jpeg');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+
+
