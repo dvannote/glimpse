@@ -4,7 +4,7 @@ html{
 }
 
 body {
-    background: #00001c !important;
+    background: black !important;
     padding: 0px;
     margin: 0px;
     height:100% !important;
@@ -20,7 +20,6 @@ button {
 }
 
 .navbar-default {
-    background-color: #00001c;
     color: #11b6c1;
     font-family: 'Varela Round', sans-serif !important;
 }
@@ -75,7 +74,7 @@ form {
 }
 
 nav {
-   background: #00001c;
+   background: black;
 }
 a:focus, a:hover {
     color: white;
@@ -89,6 +88,20 @@ a:focus, a:hover {
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     background-color: transparent;
     border-color: white;
+}
+
+.jumbotron{
+    height: 100%;
+    color: white;
+    background-color: black;
+    font-family: 'Scope One', serif;
+}
+
+h1{
+    padding: 50px;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00001c, 0 0 30px  #00001c, 0 0 40px  #00001c, 0 0 55px  #00001c, 0 0 75px #00001c;
 }
 
 label {
@@ -161,6 +174,36 @@ input:-moz-placeholder { /* Firefox 4 - 18 */
 input:focus{
     box-shadow: #11b6c1;
 }
+
+.parallax {
+    /* The image used */
+    background-image: url('http://28oa9i1t08037ue3m1l0i861.wpengine.netdna-cdn.com/wp-content/uploads/2016/06/DAY_TO_NIGHT_CONEY_ISLAND_20110816.jpg');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    /* The image used */
+    background-image: url('https://static.pexels.com/photos/7543/pexels-photo.jpeg');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 
 
 
