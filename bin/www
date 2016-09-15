@@ -5,22 +5,15 @@ var https = require('https');
 var app = require('../app');
 
 var httpsServer = https.createServer(certs.credentials, app).listen(3000);
-var io = require('socket.io')(httpsServer);
-var ioRoutes = require('../routes/ioRoutes');
+
 
 var session = require("express-session")({
     secret: certs.credentials.key,
     resave: true,
     saveUninitialized: true
 });
-var sharedsession = require("express-socket.io-session");
+
 
 app.use(session);
-
-io.use(sharedsession(session, {
-    autoSave:true
-}));
-
-io.on('connection', ioRoutes.ioRoute);
 
 
