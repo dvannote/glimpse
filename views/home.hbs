@@ -1,0 +1,81 @@
+<script>
+    $('.grid').packery({
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true,
+        gutter: 5
+    });
+
+    $('.prepend-button').on( 'click', function() {
+        // create new item elements
+        var $items = getItemElement().add( getItemElement() ).add( getItemElement() );
+        // prepend elements to container
+        $grid.prepend( $items )
+        // add and lay out newly prepended elements
+                .packery( 'prepended', $items );
+    });
+
+
+    // make <div class="grid-item grid-item--width# grid-item--height#" />
+    function getItemElement() {
+        var $item = $('<div class="grid-item"></div>');
+        // add width and height class
+        var wRand = Math.random();
+        var hRand = Math.random();
+        var widthClass = wRand > 0.85 ? 'grid-item' : wRand > 0.7 ? 'grid-item' : '';
+        var heightClass = hRand > 0.85 ? 'grid-item' : hRand > 0.5 ? 'grid-item' : '';
+        $item.addClass( widthClass ).addClass( heightClass );
+        return $item;
+    }
+</script>
+
+
+<nav class="navbar navbar-fixed-top" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/"><i class="fa fa-sign-out" aria-hidden="true"></i> logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="grid">
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+</div>

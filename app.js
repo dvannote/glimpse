@@ -1,4 +1,3 @@
-
 var express = require('express');
 var flash = require('req-flash');
 var session = require('express-session');
@@ -31,22 +30,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/', routes);
 
 app.use(session({
     secret: 'secret',
     saveUninitialized: true,
-    resave: true
+    resave: true,
+    // cookie: {maxAge: 60000}
 }));
-
 app.use(flash());
 
-app.use(function (res,req, next){
+app.use(function (req,res, next){
    res.locals.success_msg = req.flash('success_msg');
    res.locals.error_msg = req.flash('error_msg');
    res.locals.error = req.flash('error');
+   res.locals.user = req.user || null;
    next();
 });
 
@@ -56,17 +56,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
@@ -74,11 +63,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-
-
-
-
 
 module.exports = app;

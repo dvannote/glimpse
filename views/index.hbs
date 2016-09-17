@@ -11,6 +11,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
+                    {{#if user}}
+                        <li><a href="/">logout</a></li>
+                    {{else}}
                     <li class="dropdown" id="signup">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="fa fa-sign-in"></span> login</a>
                         <div class="dropdown-menu">
@@ -53,6 +56,7 @@
                             </form>
                         </div>
                     </li>
+                    {{/if}}
                 </ul>
             </div>
         </div>
