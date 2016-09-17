@@ -44,10 +44,6 @@
                                 <label><input type="password" name="password" placeholder="password" required/> </label>
                                 <label><input type="password" name="password2" placeholder="confirm password" required/> </label>
                                 <label><input type='file' onchange="readURL(this);"/></label>
-                                <label><div class="buttonContainer">
-                                    <img id="profilePic" src="images/no_user.png" class="img-circle" alt=""/>
-                                </div>
-                                </label>
                                 <div class="buttonContainer">
                                     <button type="submit">
                                         <i class="fa fa-check fa-3x"></i>
@@ -108,21 +104,6 @@
 
 <div class="parallax3"></div>
 
-
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#profilePic')
-                        .attr('src', e.target.result)
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
 
 
 

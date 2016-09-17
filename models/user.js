@@ -18,6 +18,9 @@ var UserSchema = mongoose.Schema({
     },
     lastName: {
         type: String
+    },
+    img: {
+      data: Buffer, content_type: String
     }
 });
 

@@ -41,15 +41,13 @@ router.post('/register', function(req,res){
             firstName: firstName,
             lastName: lastName,
             email: email,
-            password: password
+            password: password,
         });
 
         User.createUser(newUser, function (err, user) {
             if (err) throw err;
             console.log(user);
         });
-
-        // req.flash('success_msg', 'Congratulations! You are now a member! Feel free to login.')
 
         res.render('home');
     } else {
@@ -90,8 +88,10 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req,res) {
+
     res.render('home');
 });
+
 
 router.get('/logout', function(req,res){
     req.logout();
