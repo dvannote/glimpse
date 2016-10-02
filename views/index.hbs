@@ -11,19 +11,18 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    {{#if user}}
-                        <li><a href="/">logout</a></li>
-                    {{else}}
                     <li class="dropdown" id="signup">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="fa fa-sign-in"></span> login</a>
                         <div class="dropdown-menu">
                             <form method="post" action="/login">
-                                <label><input type="text" name="username" placeholder="email" required/></label>
-                                <label><input type="password" name="password" placeholder="password" required/></label><br/>
-                                <div class="buttonContainer">
-                                    <button type="submit">
-                                        <i class="fa fa-arrow-right fa-3x"></i>
-                                    </button>
+                                <div class="ui-field-contain">
+                                    <label><input type="text" name="username" placeholder="email" required/></label>
+                                    <label><input type="password" name="password" placeholder="password" required/></label><br/>
+                                    <div class="buttonContainer">
+                                        <button type="submit">
+                                            <i class="fa fa-arrow-right fa-3x"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -37,22 +36,22 @@
                                 {{/each}}
                             {{/if}}
                             <form method="post" action="/register">
-                                <label><input type="text" name="username"  placeholder="username" required/> </label>
-                                <label><input type="text" name="firstName" placeholder="first name" required/> </label>
-                                <label><input type="text" name="lastName"  placeholder="last name" required/> </label>
-                                <label><input type="email" name="email"  placeholder="email" required/> </label>
-                                <label><input type="password" name="password" placeholder="password" required/> </label>
-                                <label><input type="password" name="password2" placeholder="confirm password" required/> </label>
-                                <label><input type='file' onchange="readURL(this);"/></label>
-                                <div class="buttonContainer">
-                                    <button type="submit">
-                                        <i class="fa fa-check fa-3x"></i>
-                                    </button>
+                                <div class="ui-field-contain">
+                                    <label><input type="text" name="username"  placeholder="username" required/> </label>
+                                    <label><input type="text" name="firstName" placeholder="first name" required/> </label>
+                                    <label><input type="text" name="lastName"  placeholder="last name" required/> </label>
+                                    <label><input type="email" name="email"  placeholder="email" required/> </label>
+                                    <label><input type="password" name="password" placeholder="password" required/> </label>
+                                    <label><input type="password" name="password2" placeholder="confirm password" required/> </label>
+                                    <div class="buttonContainer">
+                                        <button type="submit">
+                                            <i class="fa fa-check fa-3x"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     </li>
-                    {{/if}}
                 </ul>
             </div>
         </div>
