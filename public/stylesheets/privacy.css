@@ -1,0 +1,42 @@
+#privacy {
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+}
+
+.flex-item {
+    margin: 10px;
+}
+
+h3{
+    padding-top: 50px;
+    text-align: left;
+    display: block;
+    margin: 0 auto;
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #11b6c1, 0 0 30px  #11b6c1, 0 0 40px  #11b6c1, 0 0 55px  #11b6c1, 0 0 75px #11b6c1;
+}
+
+h1{
+    font-family: 'Varela Round', sans-serif !important;
+    padding-top: 50px;
+    display: block;
+    margin: 0 auto;
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00001c, 0 0 30px  #00001c, 0 0 40px  #00001c, 0 0 55px  #00001c, 0 0 75px #00001c;
+}
+
+.glimpseNav {
+    text-align: left !important;
+    color: white !important;
+    font-size: 18px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00001c, 0 0 30px  #00001c, 0 0 40px  #00001c, 0 0 55px  #00001c, 0 0 75px #00001c;
+}

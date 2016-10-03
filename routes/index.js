@@ -8,6 +8,10 @@ router.get('/', (req, res, next)=>{
     res.render('index', { title: 'glimpse' });
 });
 
+router.get('/privacyPolicy', (req, res, next)=>{
+    res.render('privacyPolicy', { title: 'glimpse privacy policy' });
+});
+
 function ensureAuthenticate(req,res,next){
     if(req.isAuthenticated()){
         return next();
