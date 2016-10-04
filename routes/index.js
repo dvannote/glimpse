@@ -23,23 +23,21 @@ var flickr = require("flickrapi"),
     flickrOptions = {
         api_key: "a17c6a5fadc32351ab403086ff9dcce1",
         secret: "72798014d0f72e4d",
-
-        // FLICKR_USER_ID: "143989775@N06",
+        user_id: "143989775@N06"
         // FLICKR_ACCESS_TOKEN: "72157673534760490-23dbf88abf3ac111",
         // FLICKR_ACCESS_TOKEN_SECRET: "9363ae4af815127f"
     };
 
 flickr.authenticate(flickrOptions, function(error, flickr) {
-    flickr.photos.geo.photosForLocation({
-        lat: '38.6081223',
-        lon: '-89.82539759999997',
-        accuracy: 1,
-        user_id: flickr.options.user_id,
+    flickr.photos.search({
+        lat: 38.6081376,
+        lon:-89.82540069999999,
+        accuracy: 11,
         page: 1,
         per_page: 500
     }, function(err, result) {
         if(err) throw err;
-        console.log(result);
+        console.log(JSON.stringify(result.photos.photo[3]));
     });
 });
 
