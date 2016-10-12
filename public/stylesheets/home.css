@@ -30,8 +30,8 @@ body { font-family: sans-serif; }
 .grid-item {
     float: left;
     height: 250px;
-    background-image: url("../images/roo.jpg");
     border: 2px solid hsla(0, 0%, 0%, 0.5);
+    background-image: url('http://farm9.staticflickr.com/8316/29881403625_af24072fca.jpg');
 }
 
 button { font-size: 20px; }
