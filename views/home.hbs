@@ -60,7 +60,9 @@
     </div>
 </nav>
 
-console.log({{photo}});
+{{#each p}}
+    <img src="http://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg"/>
+{{/each}}
 <div class="grid flex">
     <div class="grid-item"></div>
 </div>

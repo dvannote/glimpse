@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require('../models/user');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
-var photo = {};
+var photo = [];
 
 router.get('/', (req, res, next)=>{
     res.render('index', { title: 'glimpse' });
@@ -34,8 +34,9 @@ flickr.authenticate(flickrOptions, function(error, flickr) {
         lat: 38.6081376,
         lon:-89.82540069999999,
         accuracy: 11,
+        radius:25,
         page: 1,
-        per_page: 100
+        per_page: 1000
     }, function(err, result) {
         if(err) throw err;
         photo = (JSON.stringify(result.photos.photo));
@@ -76,8 +77,8 @@ router.post('/register', function(req,res){
             if (err) throw err;
             console.log(user);
         });
-
-        res.render('home',{photo});
+        console.log(typeof photo);
+        res.render('home',{p:JSON.parse(photo)});
     } else {
         res.render('/', {
             errors: errors
@@ -116,7 +117,8 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req,res) {
-    res.render('home',{photo});
+    console.log(typeof photo);
+    res.render('home',{p:JSON.parse(photo)});
 });
 
 
