@@ -16,10 +16,10 @@
                         <div class="dropdown-menu">
                             <form method="post" action="/login">
                                 <div class="ui-field-contain">
-                                    <label><input type="text" name="username" placeholder="email" required/></label>
+                                    <label><input type="text" name="username" placeholder="username" required/></label>
                                     <label><input type="password" name="password" placeholder="password" required/></label><br/>
                                     <div class="buttonContainer">
-                                        <button type="submit">
+                                        <button type="submit" id="getLocation">
                                             <i class="fa fa-arrow-right fa-3x"></i>
                                         </button>
                                     </div>
@@ -44,7 +44,7 @@
                                     <label><input type="password" name="password" placeholder="password" required/> </label>
                                     <label><input type="password" name="password2" placeholder="confirm password" required/> </label>
                                     <div class="buttonContainer">
-                                        <button type="submit">
+                                        <button type="submit" id="getLocation">
                                             <i class="fa fa-check fa-3x"></i>
                                         </button>
                                     </div>
@@ -102,6 +102,19 @@
 </div>
 
 <div class="parallax3"></div>
+
+<script>
+        var lat;
+        var lon;
+        window.onload = function() {
+            var startPos;
+            navigator.geolocation.getCurrentPosition(function(position) {
+                startPos = position;
+                lat = startPos.coords.latitude;
+                lon = startPos.coords.longitude;
+            });
+        };
+</script>
 
 
 

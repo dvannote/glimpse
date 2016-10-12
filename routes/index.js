@@ -4,9 +4,15 @@ var User = require('../models/user');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var photo = [];
+var lat;
+var lon;
 
 router.get('/', (req, res, next)=>{
     res.render('index', { title: 'glimpse' });
+});
+
+router.get('/home', (req, res, next)=>{
+    res.render('home', {p:JSON.parse(photo)});
 });
 
 router.get('/privacyPolicy', (req, res, next)=>{
@@ -20,6 +26,7 @@ function ensureAuthenticate(req,res,next){
         res.render('/');
     }
 }
+
 var flickr = require("flickrapi"),
     flickrOptions = {
         api_key: "a17c6a5fadc32351ab403086ff9dcce1",
@@ -34,17 +41,15 @@ flickr.authenticate(flickrOptions, function(error, flickr) {
         lat: 38.6081376,
         lon:-89.82540069999999,
         accuracy: 11,
-        radius:25,
+        radius:5,
         page: 1,
-        per_page: 1000
+        per_page: 100,
+        safe_search: 2
     }, function(err, result) {
         if(err) throw err;
         photo = (JSON.stringify(result.photos.photo));
-        console.log(photo);
     });
 });
-
-
 
 router.post('/register', function(req,res){
     var username = req.body.username;
@@ -117,8 +122,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login', passport.authenticate('local'), function(req,res) {
-    console.log(typeof photo);
-    res.render('home',{p:JSON.parse(photo)});
+    res.redirect('/home')
 });
 
 
@@ -126,6 +130,8 @@ router.get('/logout', function(req,res){
     req.logout();
     res.redirect('/');
 });
+
+
 
 
 module.exports = router;

@@ -10,6 +10,7 @@ body { font-family: sans-serif; }
 .grid {
     width: 80%;
     margin: auto;
+    margin-top: 15%;
 }
 
 /* clear fix */
@@ -29,9 +30,13 @@ body { font-family: sans-serif; }
 
 .grid-item {
     float: left;
-    height: 250px;
+    height: 100$;
     border: 2px solid hsla(0, 0%, 0%, 0.5);
-    background-image: url('http://farm9.staticflickr.com/8316/29881403625_af24072fca.jpg');
+}
+
+img {
+    height: 100%;
+    width: 100%;
 }
 
 button { font-size: 20px; }
