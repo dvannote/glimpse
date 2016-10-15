@@ -112,6 +112,20 @@
                 startPos = position;
                 lat = startPos.coords.latitude;
                 lon = startPos.coords.longitude;
+                var data = {};
+                data.lat = lat;
+                data.lon = lon;
+
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    url: 'https://localhost:3000/getLocation',
+                    success: function(data) {
+                        console.log('success');
+                        console.log(JSON.stringify(data));
+                    }
+                });
             });
         };
 </script>

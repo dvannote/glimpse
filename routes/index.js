@@ -4,6 +4,7 @@ var User = require('../models/user');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var photo = [];
+var coords = {};
 var lat;
 var lon;
 
@@ -17,6 +18,12 @@ router.get('/home', (req, res, next)=>{
 
 router.get('/privacyPolicy', (req, res, next)=>{
     res.render('privacyPolicy', { title: 'glimpse privacy policy' });
+});
+
+router.post('/getLocation', function(req, res){
+    lat = req.body.lat;
+    lon = req.body.lon;
+    console.log(lat,lon);
 });
 
 function ensureAuthenticate(req,res,next){
@@ -43,7 +50,7 @@ flickr.authenticate(flickrOptions, function(error, flickr) {
         accuracy: 11,
         radius:5,
         page: 1,
-        per_page: 100,
+        per_page: 500,
         safe_search: 2
     }, function(err, result) {
         if(err) throw err;
@@ -130,8 +137,6 @@ router.get('/logout', function(req,res){
     req.logout();
     res.redirect('/');
 });
-
-
 
 
 module.exports = router;
