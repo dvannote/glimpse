@@ -18,9 +18,8 @@
                         <a href="/"><i class="fa fa-sign-out" aria-hidden="true"></i> logout</a>
                     </li>
                     <li class="dropdown" id="signup">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">{{User.firstName}}</a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">{{username}}</a>
                         <div class="dropdown-menu">
-
                         </div>
                     </li>
                 </ul>
@@ -30,12 +29,11 @@
 </nav>
 
 
-    <!--<img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg"/>-->
 
 <div class="grid flex">
     {{#each p}}
-    <div class="grid-item"> <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/></div>
-{{/each}}
+        <div class="grid-item"> <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/></div>
+    {{/each}}
 </div>
 
 <script>
@@ -68,3 +66,5 @@
         return $item;
     }
 </script>
+
+
