@@ -2,3 +2,4 @@
 bin/*.pem
 node_modules/
 routes/
+models/
