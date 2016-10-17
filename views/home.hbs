@@ -30,41 +30,17 @@
 
 
 
-<div class="grid flex">
+<div class="flexGrid view">
     {{#each p}}
-        <div class="grid-item"> <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/></div>
+        <a href="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg" />
+        <figure class="flex-item">
+            <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/>
+            <span class="text-content">
+                <span>{{title}}</span>
+            </span>
+        </figure>
     {{/each}}
 </div>
 
-<script>
-    $('.grid').packery({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true,
-        gutter: 5
-    });
-
-    $('.prepend-button').on( 'click', function() {
-        // create new item elements
-        var $items = getItemElement().add( getItemElement() ).add( getItemElement() );
-        // prepend elements to container
-        $grid.prepend( $items )
-        // add and lay out newly prepended elements
-                .packery( 'prepended', $items );
-    });
-
-
-    // make <div class="grid-item grid-item--width# grid-item--height#" />
-    function getItemElement() {
-        var $item = $('<div class="grid-item"></div>');
-        // add width and height class
-        var wRand = Math.random();
-        var hRand = Math.random();
-        var widthClass = wRand > 0.85 ? 'grid-item' : wRand > 0.7 ? 'grid-item' : '';
-        var heightClass = hRand > 0.85 ? 'grid-item' : hRand > 0.5 ? 'grid-item' : '';
-        $item.addClass( widthClass ).addClass( heightClass );
-        return $item;
-    }
-</script>
 
 
