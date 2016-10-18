@@ -28,17 +28,17 @@
     </div>
 </nav>
 
-
-
+<div class="jumbotron">
+    <h1>glimpse home</h1>
+    <p>take a look at what's going on around you</p>
+    <a href="#" class="inset"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
+</div>
 <div class="flexGrid view">
     {{#each p}}
-        <a href="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg" />
-        <figure class="flex-item">
+        <div class="flex-item imageHolder">
             <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/>
-            <span class="text-content">
-                <span>{{title}}</span>
-            </span>
-        </figure>
+            <div class="caption"><br>{{title}}</div>
+        </div>
     {{/each}}
 </div>
 

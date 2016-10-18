@@ -8,7 +8,7 @@ body { font-family: sans-serif; }
 /* ---- grid ---- */
 
 .flexGrid {
-    margin-top: 100px;
+    margin-top: 200px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; /* or space-around */
@@ -37,26 +37,57 @@ img {
     transition: transform .2s ease-in-out;
 }
 
-a {
-    display: block;
-    margin-bottom: 8px;
-    width: calc(50% - 4px);
-    text-decoration: none;
-    color: black;
+.imageHolder {
+    position: relative;
 }
 
-@media screen and (min-width: 50em) {
-    a {
-        width: calc(25% - 6px);
-    }
-}
-
-a:hover img {
+.imageHolder:hover img {
     transform: scale(1.15);
 }
 
-a:hover span {
-    transform: scale(1.15);
+.imageHolder .caption {
+    opacity: 0;
+    position: absolute;
+    height:50px;
+    width: 250px;
+    bottom: 0px;
+    left: 0px;
+    padding: 2px 0px;
+    color: white;
+    background: black;
+    text-align: center;
+    font-weight:bold;
 }
+.imageHolder:hover .caption {
+    opacity: 0.75;
+}
+
+.fa-camera-retro {
+    color: #ffffff;
+}
+
+.inset{
+    display:block;
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    font-size:20px;
+    line-height:100px;
+    text-shadow:0 1px 0 #666;
+    text-align:center;
+    text-decoration:none;
+    box-shadow:1px 1px 2px #000;
+    background:#11b6c1;
+    opacity:0.95
+}
+
+.inset:hover{
+    color:#eee;
+    text-shadow:0 0 1px #666;
+    text-decoration:none;
+    box-shadow:0 0 4px #222 inset;
+    opacity:1
+}
+
 
 button { font-size: 20px; }
