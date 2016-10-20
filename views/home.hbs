@@ -29,18 +29,41 @@
 </nav>
 
 <div class="jumbotron">
-    <h1>glimpse home</h1>
+    <h1>welcome</h1>
     <p>take a look at what's going on around you</p>
     <a href="#" class="inset"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
 </div>
+
+
 <div class="flexGrid view">
     {{#each p}}
-        <div class="flex-item imageHolder">
+        <div class="flex-item imageHolder pop">
             <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/>
             <div class="caption"><br>{{title}}</div>
         </div>
     {{/each}}
 </div>
 
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <img src="" class="imagepreview">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        $('.pop').on('click', function() {
+            $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+            $('#imagemodal').modal('show');
+        });
+    });
+</script>
 
 
