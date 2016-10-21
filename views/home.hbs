@@ -31,7 +31,32 @@
 <div class="jumbotron">
     <h1>welcome</h1>
     <p>take a look at what's going on around you</p>
-    <a href="#" class="inset"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
+    <a href="#uploadModaluploadModal" class="btn btn-primary btn-lg inset" data-toggle="modal" data-target="#uploadModal"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
+</div>
+
+<!-- Modal -->
+<div id="uploadModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title">leave a piece of yourself behind</h1>
+            </div>
+            <div class="modal-body">
+                <form id="form1" runat="server">
+                    <input type='file' id="imgInp" />
+                    <img id="blah" src="#" alt="your image" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">nevermind</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">share!</button>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 
@@ -63,6 +88,24 @@
             $('.imagepreview').attr('src', $(this).find('img').attr('src'));
             $('#imagemodal').modal('show');
         });
+    });
+</script>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp").change(function(){
+        readURL(this);
     });
 </script>
 
