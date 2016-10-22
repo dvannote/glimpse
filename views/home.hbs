@@ -1,4 +1,5 @@
 
+
 <nav class="navbar navbar-fixed-top background-container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <div class="navbar-inner">
         <div class="container">
@@ -99,8 +100,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">nevermind</button>
-                <button type="button" class="btn btn-success" onclick="postImg()" data-dismiss="modal">share</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">scratch that</button>
+                <button id="uploadImg" type="button" class="btn btn-success"  data-dismiss="modal">share</button>
             </div>
         </div>
 
@@ -219,23 +220,40 @@
 </script>
 
 <script>
-    function postImg(){
-        var photo = document.getElementById('imgInp').files[0];
+    var lat;
+    var lon;
+    var data = {};
 
-        $.ajax({
-            type: "POST",
-            url: 'https://up.flickr.com/services/upload/',
-            data: {
-                'photo': ,
-                'title': ,
-                'is_public': ,
-                'tags': ,
+    $(document).ready(
+            function(){
+                $("#uploadImg").click(function() {
+                    data.title = document.getElementsByClassName("caption");
+                    data.photo = document.getElementById("imgInp").files[0];
+                    var startPos;
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        startPos = position;
+                        lat = startPos.coords.latitude;
+                        lon = startPos.coords.longitude;
+                        data.lat = lat;
+                        data.lon = lon;
+                    });
 
-            },
-            success: success,
-            dataType: dataType
-        });
-    };
+                    console.log(data.photo);
+
+                    $.ajax({
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json',
+                        url: 'https://localhost:3000/uploadPhoto',
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                        }
+                    });
+                })
+
+            });
+
 </script>
 
 
