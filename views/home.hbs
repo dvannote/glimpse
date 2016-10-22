@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-fixed-top" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<nav class="navbar navbar-fixed-top background-container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <div class="navbar-inner">
         <div class="container">
             <div class="navbar-header">
@@ -28,7 +28,7 @@
     </div>
 </nav>
 
-<div class="jumbotron">
+<div class="jumbotron background-container">
     <h1>welcome</h1>
     <p>take a look at what's going on around you</p>
     <a href="#uploadModaluploadModal" class="btn btn-primary btn-lg inset" data-toggle="modal" data-target="#uploadModal"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
@@ -41,18 +41,66 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h1 class="modal-title">leave a piece of yourself behind</h1>
             </div>
             <div class="modal-body">
-                <form id="form1" runat="server">
-                    <input type='file' id="imgInp" />
-                    <img id="blah" src="#" alt="your image" />
+                <form id="uploadForm" runat="server">
+                    <img id="preview" src="/images/placeholder.png" alt="/public/images/placeholder.png" />
+                    <input type='file' id="imgInp" accept="image/*" capture="camera">
+                    <button type="button" class="btn alter"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
+                    <div class="sliders">
+                        <form class="imageEditor">
+                            <button type="button" class="btn blurBtn"><i class="fa fa-tint fa-2x" aria-hidden="true"></i></button>
+                            <button type="button" class="btn brightnessBtn"><i class="fa fa-sun-o fa-2x" aria-hidden="true"></i></button>
+                            <button type="button" class="btn adjustBtn"><i class="fa fa-adjust fa-2x" aria-hidden="true"></i></button>
+                            <button type="button" class="btn colorBtn"><i class="fa fa-paint-brush fa-2x" aria-hidden="true"></i></button>
+                            <button type="button" class="btn addCap"><i class="fa fa-font fa-2x" aria-hidden="true"></i></button>
+                            <p class="caption">
+                                <input class="caption" type="text" name="caption" placeholder="caption">
+                            </p>
+                            <p class="blur">
+                                <label for="blur">blur</label>
+                                <input id="blur" name="blur" type="range" min="0" max="10" value="0">
+                            </p>
+                            <p class="brightness">
+                                <label for="br">brightness</label>
+                                <input id="br" name="br" type="range" min=0 max=200 value=100>
+                            </p>
+                            <p class="adjust">
+                                <label for="ct">contrast</label>
+                                <input id="ct" name="ct" type="range" min=0 max=200 value=100>
+                            </p>
+                            <p class="adjust">
+                                <label for="opacity">opacity</label>
+                                <input id="opacity" name="opacity" type="range" min=0 max=100 value=100>
+                            </p>
+                            <p class="color">
+                                <label for="gs">grayscale</label>
+                                <input id="gs" name="gs" type="range" min="0" max="100" value="0">
+                            </p>
+                            <p class="color">
+                                <label for="hue">hue</label>
+                                <input id="hue" name="hue" type="range" min=0 max=360 value=0>
+                            </p>
+                            <p class="color">
+                                <label for="invert">invert</label>
+                                <input id="invert" name="invert" type="range" min=0 max=100 value=0>
+                            </p>
+                            <p class="color">
+                                <label for="saturate">saturate</label>
+                                <input id="saturate" name="saturate" type="range" min=0 max=500 value=100>
+                            </p>
+                            <p class="color">
+                                <label for="sepia">sepia</label>
+                                <input id="sepia" name="sepia" type="range" min=0 max=100 value=0>
+                            </p>
+                        </form>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">nevermind</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal">share!</button>
+                <button type="button" class="btn btn-success" onclick="postImg()" data-dismiss="modal">share</button>
             </div>
         </div>
 
@@ -60,7 +108,7 @@
 </div>
 
 
-<div class="flexGrid view">
+<div class="flexGrid view background-container">
     {{#each p}}
         <div class="flex-item imageHolder pop">
             <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/>
@@ -97,7 +145,7 @@
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
+                $('#preview').attr('src', e.target.result);
             }
 
             reader.readAsDataURL(input.files[0]);
@@ -107,6 +155,87 @@
     $("#imgInp").change(function(){
         readURL(this);
     });
+</script>
+
+<script>
+    // Editing image via css properties
+    function editImage() {
+        var gs = $("#gs").val(); // grayscale
+        var blur = $("#blur").val(); // blur
+        var br = $("#br").val(); // brightness
+        var ct = $("#ct").val(); // contrast
+        var hue = $("#hue").val(); //hue-rotate
+        var opacity = $("#opacity").val(); //opacity
+        var invert = $("#invert").val(); //invert
+        var saturate = $("#saturate").val(); //saturate
+        var sepia = $("#sepia").val(); //sepia
+
+        $("#preview").css("filter", 'grayscale(' + gs+
+                '%) blur(' + blur +
+                'px) brightness(' + br +
+                '%) contrast(' + ct +
+                '%) hue-rotate(' + hue +
+                'deg) opacity(' + opacity +
+                '%) invert(' + invert +
+                '%) saturate(' + saturate +
+                '%) sepia(' + sepia + '%)');
+
+        $("#preview").css("-webkit-filter", 'grayscale(' + gs+
+                '%) blur(' + blur +
+                'px) brightness(' + br +
+                '%) contrast(' + ct +
+                '%) hue-rotate(' + hue +
+                'deg) opacity(' + opacity +
+                '%) invert(' + invert +
+                '%) saturate(' + saturate +
+                '%) sepia(' + sepia + '%)');
+
+    }
+    $('input[type=range]').change(editImage).mousemove(editImage);
+</script>
+
+<script>
+    $(document).ready(
+            function() {
+                $(".alter").click(function() {
+                    $(".sliders").fadeToggle();
+                });
+                $(".addCap").click(function() {
+                    $(".caption").fadeToggle();
+                });
+                $(".blurBtn").click(function() {
+                    $(".blur").fadeToggle();
+                });
+                $(".colorBtn").click(function() {
+                    $(".color").fadeToggle();
+                });
+                $(".brightnessBtn").click(function() {
+                    $(".brightness").fadeToggle();
+                });
+                $(".adjustBtn").click(function() {
+                    $(".adjust").fadeToggle();
+                });
+            });
+</script>
+
+<script>
+    function postImg(){
+        var photo = document.getElementById('imgInp').files[0];
+
+        $.ajax({
+            type: "POST",
+            url: 'https://up.flickr.com/services/upload/',
+            data: {
+                'photo': ,
+                'title': ,
+                'is_public': ,
+                'tags': ,
+
+            },
+            success: success,
+            dataType: dataType
+        });
+    };
 </script>
 
 
