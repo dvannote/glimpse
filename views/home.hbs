@@ -227,8 +227,8 @@
     $(document).ready(
             function(){
                 $("#uploadImg").click(function() {
-                    data.title = document.getElementsByClassName("caption");
-                    data.photo = document.getElementById("imgInp").files[0];
+                    var formData = new FormData();
+                    formData.append('image', $('input[type=file]')[0].files[0]);
                     var startPos;
                     navigator.geolocation.getCurrentPosition(function(position) {
                         startPos = position;
@@ -242,8 +242,11 @@
 
                     $.ajax({
                         type: 'POST',
-                        data: JSON.stringify(data),
-                        contentType: 'application/json',
+                        data: formData,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        context: this,
                         url: 'https://localhost:3000/uploadPhoto',
                         success: function(data) {
                             console.log('success');
