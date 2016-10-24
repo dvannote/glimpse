@@ -16,8 +16,8 @@
                         <div class="dropdown-menu">
                             <form method="post" action="/login">
                                 <div class="ui-field-contain">
-                                    <label><input type="text" name="username" placeholder="username" required/></label>
-                                    <label><input type="password" name="password" placeholder="password" required/></label><br/>
+                                    <label><input type="text" name="username" placeholder="username" autocapitalize="off" required/></label>
+                                    <label><input type="password" name="password" placeholder="password" autocapitalize="off" required/></label><br/>
                                     <div class="buttonContainer">
                                         <button type="submit" id="getLocation">
                                             <i class="fa fa-arrow-right fa-3x"></i>
@@ -37,12 +37,12 @@
                             {{/if}}
                             <form method="post" action="/register">
                                 <div class="ui-field-contain">
-                                    <label><input type="text" name="username"  placeholder="username" required/> </label>
+                                    <label><input type="text" name="username" autocapitalize="off" placeholder="username" required/> </label>
                                     <label><input type="text" name="firstName" placeholder="first name" required/> </label>
                                     <label><input type="text" name="lastName"  placeholder="last name" required/> </label>
-                                    <label><input type="email" name="email"  placeholder="email" required/> </label>
-                                    <label><input type="password" name="password" placeholder="password" required/> </label>
-                                    <label><input type="password" name="password2" placeholder="confirm password" required/> </label>
+                                    <label><input type="email" name="email" placeholder="email" autocapitalize="off" required/> </label>
+                                    <label><input type="password" name="password" placeholder="password" autocapitalize="off" required/> </label>
+                                    <label><input type="password" name="password2" placeholder="confirm password" autocapitalize="off" required/> </label>
                                     <div class="buttonContainer">
                                         <button type="submit" id="getLocation">
                                             <i class="fa fa-check fa-3x"></i>
