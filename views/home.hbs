@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-fixed-top background-container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <div class="navbar-inner">
         <div class="container">
@@ -35,6 +33,18 @@
     <a href="#uploadModaluploadModal" class="btn btn-primary btn-lg inset" data-toggle="modal" data-target="#uploadModal"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
 </div>
 
+<div id="ptr">
+    <!-- Pull down arrow indicator -->
+    <span class="genericon genericon-next"></span>
+
+    <!-- CSS-based loading indicator -->
+    <div class="loading">
+        <span id="l1"></span>
+        <span id="l2"></span>
+        <span id="l3"></span>
+    </div>
+</div>
+
 <!-- Modal -->
 <div id="uploadModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -45,9 +55,10 @@
                 <h1 class="modal-title">leave a piece of yourself behind</h1>
             </div>
             <div class="modal-body">
-                <form id="uploadForm" runat="server">
+                <form id="uploadForm" method="post" enctype="multipart/form-data"  action="/uploadPhoto">
                     <img id="preview" src="/images/placeholder.png" alt="/public/images/placeholder.png" />
-                    <input type='file' id="imgInp" accept="image/*" capture="camera">
+                    <input type='file' id="imgInp" accept="image/*" capture="camera" name="imgInp">
+                    <input type="submit" value="Submit">
                     <button type="button" class="btn alter"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></button>
                     <div class="sliders">
                         <form class="imageEditor">
@@ -97,6 +108,7 @@
                             </p>
                         </form>
                     </div>
+
                 </form>
             </div>
             <div class="modal-footer">
@@ -108,17 +120,6 @@
     </div>
 </div>
 
-
-<div class="flexGrid view background-container">
-    {{#each p}}
-        <div class="flex-item imageHolder pop">
-            <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/>
-            <div class="caption"><br>{{title}}</div>
-        </div>
-    {{/each}}
-</div>
-
-
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -129,6 +130,19 @@
         </div>
     </div>
 </div>
+
+
+<div class="flexGrid view background-container" id="content">
+    {{#each p}}
+        <div class="flex-item imageHolder pop">
+            <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/>
+            <div class="caption"><br>{{title}}</div>
+        </div>
+    {{/each}}
+</div>
+
+
+
 
 
 <script>
@@ -220,43 +234,45 @@
 </script>
 
 <script>
-    var lat;
-    var lon;
-    var data = {};
-
-    $(document).ready(
-            function(){
-                $("#uploadImg").click(function() {
-                    var formData = new FormData();
-                    formData.append('image', $('input[type=file]')[0].files[0]);
-                    var startPos;
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        startPos = position;
-                        lat = startPos.coords.latitude;
-                        lon = startPos.coords.longitude;
-                        data.lat = lat;
-                        data.lon = lon;
-                    });
-
-                    console.log(data.photo);
-
-                    $.ajax({
-                        type: 'POST',
-                        data: formData,
-                        cache: false,
-                        processData: false,
-                        contentType: false,
-                        context: this,
-                        url: 'https://localhost:3000/uploadPhoto',
-                        success: function(data) {
-                            console.log('success');
-                            console.log(JSON.stringify(data));
-                        }
-                    });
-                })
-
-            });
+//    var lat;
+//    var lon;
+//    var data = {};
+//    var photo = new Image();
+//
+//    $(document).ready(
+//            function(){
+//                $("#uploadImg").click(function() {
+//                        photo = $('#imgInp')[0].files[0];
+//                        data.photo = photo;
+//                        console.log(photo);
+//
+//                    var startPos;
+//                    navigator.geolocation.getCurrentPosition(function(position) {
+//                        startPos = position;
+//                        lat = startPos.coords.latitude;
+//                        lon = startPos.coords.longitude;
+//                        data.lat = lat;
+//                        data.lon = lon;
+//                    });
+//
+//                    $.ajax({
+//                        type: 'POST',
+//                        data: data,
+//                        cache: false,
+//                        processData: false,
+//                        contentType: false,
+//                        context: this,
+//                        url: 'https://localhost:3000/uploadPhoto',
+//                        success: function(formData) {
+//                            console.log('success');
+//                            console.log(JSON.stringify(formData));
+//                        }
+//                    });
+//                })
+//
+//            });
 
 </script>
+
 
 
