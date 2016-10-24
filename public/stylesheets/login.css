@@ -115,9 +115,6 @@ a:focus, a:hover {
     color: white !important;
 }
 
-a {
-    color: #D15FEE !important;
-}
 
 .nav>li>a:focus,
 .nav>li>a:hover{

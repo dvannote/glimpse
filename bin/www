@@ -6,6 +6,17 @@ var app = require('../app');
 
 var httpsServer = https.createServer(certs.credentials, app).listen(3000);
 
+'use strict';
+
+var getIP = require('external-ip')();
+
+getIP(function (err, ip) {
+    if (err) {
+        // every service in the list has failed
+        throw err;
+    }
+    console.log(ip);
+});
 
 var session = require("express-session")({
     secret: certs.credentials.key,

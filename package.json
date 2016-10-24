@@ -19,6 +19,7 @@
     "express-session": "^1.14.1",
     "express-socket.io-session": "^1.3.1",
     "express-validator": "^2.20.8",
+    "external-ip": "^0.2.4",
     "flickr-upload": "^1.0.0",
     "grunt": "^0.4.0",
     "hbs": "~4.0.0",
