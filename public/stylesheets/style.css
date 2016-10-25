@@ -60,6 +60,35 @@ ul.social-icons {
   text-decoration: none;
 }
 
+.fa-snapchat {
+  padding:10px 9px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-snapchat:hover {
+  background-color: #FFFC00;
+}
+
+.fa-instagram {
+  padding:10px 9px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-instagram:hover {
+  background: -webkit-linear-gradient(#bc2a8d, #e95950, #fbad50, #fccc63, #cd486b, #8a3ab9,  #4c68d7); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#bc2a8d, #e95950, #fbad50, #fccc63, #cd486b, #8a3ab9,  #4c68d7); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#bc2a8d, #e95950, #fbad50, #fccc63, #cd486b, #8a3ab9,  #4c68d7); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#bc2a8d, #e95950, #fbad50, #fccc63, #cd486b, #8a3ab9,  #4c68d7); /* Standard syntax */
+}
+
 .fa-twitter {
   padding:10px 12px;
   -o-transition:.5s;
