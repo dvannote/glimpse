@@ -41,7 +41,8 @@
     "req-flash": "0.0.3",
     "selenium": "^2.20.0",
     "serve-favicon": "~2.3.0",
-    "socket.io": "^1.4.8"
+    "socket.io": "^1.4.8",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
     "flickrapi": "^0.6.0"
