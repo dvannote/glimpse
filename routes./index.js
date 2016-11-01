@@ -3,18 +3,18 @@ var User = require('../models/user');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 const path = require('path');
-var multer  = require('multer');
-var parseString = require('xml2js').parseString;
-// var storage =   multer.diskStorage({
-//     destination: function (req, file, callback) {
-//         callback(null, path.join(__dirname+'/upload'));
-//     },
-//     filename: function (req, file, callback) {
-//         callback(null, file.fieldname + '.jpg');
-//     }
-// });
-
-var upload = multer({ storage: storage });
+// var multer  = require('multer');
+// var parseString = require('xml2js').parseString;
+// // var storage =   multer.diskStorage({
+// //     destination: function (req, file, callback) {
+// //         callback(null, path.join(__dirname+'/upload'));
+// //     },
+// //     filename: function (req, file, callback) {
+// //         callback(null, file.fieldname + '.jpg');
+// //     }
+// // });
+//
+// var upload = multer({ storage: storage });
 var router = express.Router();
 
 var fs = require('fs');
