@@ -5,14 +5,14 @@ var LocalStrategy = require('passport-local');
 const path = require('path');
 var multer  = require('multer');
 var parseString = require('xml2js').parseString;
-var storage =   multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null, path.join(__dirname+'/upload'));
-    },
-    filename: function (req, file, callback) {
-        callback(null, file.fieldname + '.jpg');
-    }
-});
+// var storage =   multer.diskStorage({
+//     destination: function (req, file, callback) {
+//         callback(null, path.join(__dirname+'/upload'));
+//     },
+//     filename: function (req, file, callback) {
+//         callback(null, file.fieldname + '.jpg');
+//     }
+// });
 
 var upload = multer({ storage: storage });
 var router = express.Router();
@@ -66,22 +66,22 @@ router.post('/getLocation', function(req, res){
 });
 
 
-router.post('/uploadPhoto', upload.single('imgInp'), function(req, res){
-    var flickr = require('flickr-upload')({
-        api_key: "a17c6a5fadc32351ab403086ff9dcce1",
-        secret: "72798014d0f72e4d",
-        access_token: "72157673534760490-23dbf88abf3ac111",
-        access_token_secret: "9363ae4af815127f"
-    });
-
-    flickr.upload(req.file.path, function(err, photoId) {
-
-        if (err) {
-            console.error(err);
-
-        }
-    })
-});
+// router.post('/uploadPhoto', upload.single('imgInp'), function(req, res){
+//     var flickr = require('flickr-upload')({
+//         api_key: "a17c6a5fadc32351ab403086ff9dcce1",
+//         secret: "72798014d0f72e4d",
+//         access_token: "72157673534760490-23dbf88abf3ac111",
+//         access_token_secret: "9363ae4af815127f"
+//     });
+//
+//     flickr.upload(req.file.path, function(err, photoId) {
+//
+//         if (err) {
+//             console.error(err);
+//
+//         }
+//     })
+// });
 
 
 
