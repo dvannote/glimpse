@@ -21,10 +21,12 @@
     "express-validator": "^2.20.8",
     "external-ip": "^0.2.4",
     "flickr-upload": "^1.0.0",
+    "flickr-with-uploads": "^2.0.4",
     "grunt": "^0.4.0",
     "hbs": "~4.0.0",
     "j-i-c": "^2.0.2",
     "jasmine": "^2.4.1",
+    "loge": "^1.0.4",
     "masonry-layout": "^4.1.1",
     "mongodb": "^2.2.9",
     "mongoose": "^4.6.0",
@@ -42,6 +44,7 @@
     "selenium": "^2.20.0",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.4.8",
+    "streaming": "^1.0.3",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
