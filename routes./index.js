@@ -3,20 +3,10 @@ var User = require('../models/user');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 const path = require('path');
-var multer  = require('multer');
-var parseString = require('xml2js').parseString;
-
-var storage =   multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null, path.join(__dirname+'/upload'));
-    },
-    filename: function (req, file, callback) {
-        callback(null, file.fieldname + '.jpg');
-    }
-});
-
-var upload = multer({ storage: storage });
 var router = express.Router();
+var formidable = require("formidable");
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 
 var fs = require('fs');
 var photo = [];
@@ -67,7 +57,8 @@ router.post('/getLocation', function(req, res){
 });
 
 
-router.post('/uploadPhoto', upload.single('imgInp'), function(req, res){
+router.post('/uploadPhoto', multipartMiddleware, function(req, res){
+    var buf = new Buffer(req.files.imgInp.toString('binary'),'binary');
     var Flickr = require("flickrapi"),
         FlickrOptions = {
             api_key: "a17c6a5fadc32351ab403086ff9dcce1",
@@ -83,11 +74,11 @@ router.post('/uploadPhoto', upload.single('imgInp'), function(req, res){
         var uploadOptions = {
             photos: [{
                 title: "test",
-                photo: '../routes/upload/imgInp.jpg'
+                photo: buf
             }]
         };
 
-        console.log(JSON.stringify(uploadOptions.photos[0].photo));
+        console.log(buf);
 
         Flickr.upload(uploadOptions, FlickrOptions, function(err, result) {
             if(err) {
@@ -95,6 +86,17 @@ router.post('/uploadPhoto', upload.single('imgInp'), function(req, res){
             }
             console.log("photos uploaded", JSON.stringify(result));
         });
+
+    // fs.readFile(req.files.imgInp.path, function (err, data) {
+    //     var imageName = req.files.imgInp.name
+    //     // If there's an error
+    //     if(!imageName){
+    //         console.log("There was an error")
+    //         res.end();
+    //     } else {
+    //         console.log(req.files.imgInp.path)
+    //     }
+    // });
     });
 
     res.end('IT\'S WORKING');
