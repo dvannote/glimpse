@@ -58,7 +58,6 @@ router.post('/getLocation', function(req, res){
 
 
 router.post('/uploadPhoto', multipartMiddleware, function(req, res){
-    var buf = new Buffer(req.files.imgInp.toString('binary'),'binary');
     var Flickr = require("flickrapi"),
         FlickrOptions = {
             api_key: "a17c6a5fadc32351ab403086ff9dcce1",
@@ -74,29 +73,18 @@ router.post('/uploadPhoto', multipartMiddleware, function(req, res){
         var uploadOptions = {
             photos: [{
                 title: "test",
-                photo: buf
+                photo: req.files.imgInp.path
             }]
         };
 
-        console.log(buf);
+        console.log(req.files.imgInp.path);
 
         Flickr.upload(uploadOptions, FlickrOptions, function(err, result) {
             if(err) {
                 return console.error(error);
             }
-            console.log("photos uploaded", JSON.stringify(result));
+            console.log("photos uploaded", result);
         });
-
-    // fs.readFile(req.files.imgInp.path, function (err, data) {
-    //     var imageName = req.files.imgInp.name
-    //     // If there's an error
-    //     if(!imageName){
-    //         console.log("There was an error")
-    //         res.end();
-    //     } else {
-    //         console.log(req.files.imgInp.path)
-    //     }
-    // });
     });
 
     res.end('IT\'S WORKING');
