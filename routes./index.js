@@ -3,19 +3,10 @@ var User = require('../models/user');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 const path = require('path');
-// var multer  = require('multer');
-// var parseString = require('xml2js').parseString;
-// // var storage =   multer.diskStorage({
-// //     destination: function (req, file, callback) {
-// //         callback(null, path.join(__dirname+'/upload'));
-// //     },
-// //     filename: function (req, file, callback) {
-// //         callback(null, file.fieldname + '.jpg');
-// //     }
-// // });
-//
-// var upload = multer({ storage: storage });
 var router = express.Router();
+var formidable = require("formidable");
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 
 var fs = require('fs');
 var photo = [];
@@ -66,24 +57,38 @@ router.post('/getLocation', function(req, res){
 });
 
 
-// router.post('/uploadPhoto', upload.single('imgInp'), function(req, res){
-//     var flickr = require('flickr-upload')({
-//         api_key: "a17c6a5fadc32351ab403086ff9dcce1",
-//         secret: "72798014d0f72e4d",
-//         access_token: "72157673534760490-23dbf88abf3ac111",
-//         access_token_secret: "9363ae4af815127f"
-//     });
-//
-//     flickr.upload(req.file.path, function(err, photoId) {
-//
-//         if (err) {
-//             console.error(err);
-//
-//         }
-//     })
-// });
+router.post('/uploadPhoto', multipartMiddleware, function(req, res){
+    var Flickr = require("flickrapi"),
+        FlickrOptions = {
+            api_key: "a17c6a5fadc32351ab403086ff9dcce1",
+            secret: "72798014d0f72e4d",
+            user_id: "143989775@N06",
+            access_token: '72157673534760490-23dbf88abf3ac111',
+            access_token_secret: '9363ae4af815127f'
+        };
 
 
+
+    Flickr.authenticate(FlickrOptions, function(error, flickr) {
+        var uploadOptions = {
+            photos: [{
+                title: "test",
+                photo: req.files.imgInp.path
+            }]
+        };
+
+        console.log(req.files.imgInp.path);
+
+        Flickr.upload(uploadOptions, FlickrOptions, function(err, result) {
+            if(err) {
+                return console.error(error);
+            }
+            console.log("photos uploaded", result);
+        });
+    });
+
+    res.end('IT\'S WORKING');
+});
 
 
 
@@ -126,12 +131,9 @@ router.post('/register', function(req,res){
             if (err) throw err;
             console.log(user);
         });
-        console.log(typeof photo);
         res.render('home',{p:JSON.parse(photo),lat,lon});
     } else {
-        res.render('/', {
-            errors: errors
-        });
+        res.render('index');
     }
 });
 

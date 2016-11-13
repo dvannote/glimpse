@@ -29,8 +29,17 @@
 
 <div class="jumbotron background-container">
     <h1>welcome</h1>
-    <p>take a look at what's going on around you</p>
-    <a href="#uploadModaluploadModal" class="btn btn-primary btn-lg inset" data-toggle="modal" data-target="#uploadModal"><i class="fa fa-camera-retro fa-2x" aria-hidden="true"></i></a>
+    <p class="jumboText">take a look at what's going on around you</p>
+    <div class="wrapper">
+    <div class="toggle">
+        <input class="toggle-input" type="checkbox" />
+        <div class="toggle-bg"></div>
+        <div class="toggle-switch">
+            <div class="toggle-switch-figure"></div>
+            <div class="toggle-switch-figureAlt"></div>
+        </div>
+    </div>
+</div>
 </div>
 
 <div id="ptr">
@@ -233,46 +242,6 @@
             });
 </script>
 
-<script>
-//    var lat;
-//    var lon;
-//    var data = {};
-//    var photo = new Image();
-//
-//    $(document).ready(
-//            function(){
-//                $("#uploadImg").click(function() {
-//                        photo = $('#imgInp')[0].files[0];
-//                        data.photo = photo;
-//                        console.log(photo);
-//
-//                    var startPos;
-//                    navigator.geolocation.getCurrentPosition(function(position) {
-//                        startPos = position;
-//                        lat = startPos.coords.latitude;
-//                        lon = startPos.coords.longitude;
-//                        data.lat = lat;
-//                        data.lon = lon;
-//                    });
-//
-//                    $.ajax({
-//                        type: 'POST',
-//                        data: data,
-//                        cache: false,
-//                        processData: false,
-//                        contentType: false,
-//                        context: this,
-//                        url: 'https://localhost:3000/uploadPhoto',
-//                        success: function(formData) {
-//                            console.log('success');
-//                            console.log(JSON.stringify(formData));
-//                        }
-//                    });
-//                })
-//
-//            });
-
-</script>
 
 
 

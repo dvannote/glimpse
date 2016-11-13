@@ -3,7 +3,10 @@
 /* force scrollbar, prevents initial gap */
 html { overflow-y: scroll; }
 
-body { font-family: sans-serif; }
+body {
+    font-family: sans-serif;
+    background: white !important;
+}
 
 body.modal-open .background-container{
     -webkit-filter: blur(4px);
@@ -13,6 +16,32 @@ body.modal-open .background-container{
     filter: blur(4px);
     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
 }
+
+.jumbotron {
+    height: 15%;
+    color: white;
+    background-color: white;
+    font-family: 'Scope One', serif;
+    font-weight: bold;
+}
+
+nav {
+    background: white;
+}
+
+h1{
+    padding-top: 50px;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #11b6c1, 0 0 30px  #11b6c1, 0 0 40px  #11b6c1, 0 0 55px  #11b6c1 !important;
+}
+
+.jumboText {
+   color: #11b6c1;
+}
+
+
+
 .adjustBtn {
     height: 45px;
     width: 45px;
@@ -221,11 +250,62 @@ img {
     background: #131414;
 }
 
+a {
+    color: #D15FEE;
+}
+
+.glimpseNav {
+    text-align: left !important;
+    color: white !important;
+    font-size: 18px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #D15FEE, 0 0 30px #D15FEE, 0 0 40px  #D15FEE, 0 0 55px  #D15FEE !important;
+}
+
 input[type="file"] {
     margin-left: 35%;
 }
 
 
 button { font-size: 20px; }
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #edece7;
+}
+
+/*
+F5EB42 - sun inner
+E4C74D - sun outer
+FFFFFF - cloud inner
+D4D4D2 - cloud outer
+81C0D5 - parent outer
+C0E6F6 - parent inner
+FFFDF2 - moon inner
+DEE1C5 - moon outer
+FCFCFC - stars
+*/
+body {
+    background-color: #F3F3F3;
+}
+
+.wrapper {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    margin-left: 100px;
+    padding: 4px;
+    border-radius: 40px;
+}
+
+
 
 
