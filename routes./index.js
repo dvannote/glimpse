@@ -48,7 +48,7 @@ router.post('/getLocation', function(req, res){
             radius:5,
             page: 1,
             per_page: 1000,
-            safe_search: 2,
+            safe_search: 3,
         }, function(err, result) {
             if(err) throw err;
             photo = (JSON.stringify(result.photos.photo));

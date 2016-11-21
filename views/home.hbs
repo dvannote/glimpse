@@ -30,16 +30,7 @@
 <div class="jumbotron background-container">
     <h1>welcome</h1>
     <p class="jumboText">take a look at what's going on around you</p>
-    <div class="wrapper">
-    <div class="toggle">
-        <input class="toggle-input" type="checkbox" />
-        <div class="toggle-bg"></div>
-        <div class="toggle-switch">
-            <div class="toggle-switch-figure"></div>
-            <div class="toggle-switch-figureAlt"></div>
-        </div>
-    </div>
-</div>
+    <a data-switch-contrast><i class="fa fa-sun-o fa-3x"></i></a>
 </div>
 
 <div id="ptr">
@@ -242,6 +233,11 @@
             });
 </script>
 
+<script>
+    document.querySelector('[data-switch-contrast]').addEventListener('click', function() {
+        document.body.classList.toggle('nightmode');
+    });
+</script>
 
 
 

@@ -5,7 +5,12 @@ html { overflow-y: scroll; }
 
 body {
     font-family: sans-serif;
-    background: white !important;
+    background-color: white !important;
+}
+
+body {
+    --color-page-background: rgba(0, 0, 80, 0.15);
+    --color-primary-light: #f0f0f0;
 }
 
 body.modal-open .background-container{
@@ -265,45 +270,31 @@ input[type="file"] {
     margin-left: 35%;
 }
 
-
-button { font-size: 20px; }
-
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background: #edece7;
-}
-
-/*
-F5EB42 - sun inner
-E4C74D - sun outer
-FFFFFF - cloud inner
-D4D4D2 - cloud outer
-81C0D5 - parent outer
-C0E6F6 - parent inner
-FFFDF2 - moon inner
-DEE1C5 - moon outer
-FCFCFC - stars
-*/
-body {
-    background-color: #F3F3F3;
-}
-
 .wrapper {
     padding-top: 40px;
     text-align: center;
 }
 
-.toggle {
-    position: relative;
-    display: inline-block;
-    width: 100px;
-    margin-left: 100px;
-    padding: 4px;
-    border-radius: 40px;
+.nightmode {
+    --color-page-background: rgba(0, 0, 20, 0.95);
+    --color-primary-light: #0a0a0a;
+    --color-primary-dark: #f0f0f0;
+}
+
+* {
+    transition: all .2s ease-in;
+}
+
+.fa-sun-o {
+    color: orangered;
+}
+
+.icon-moon {
+    color: lightblue;
+}
+
+[data-switch-contrast] {
+    background-color: var(--color-primary-dark);
 }
 
 
