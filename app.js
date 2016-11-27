@@ -30,15 +30,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use('/', routes);
 
 app.use(session({
     secret: 'secret',
     saveUninitialized: true,
     resave: true,
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use('/', routes);
+
+
 app.use(flash());
 
 app.use(function (req,res, next){
@@ -62,5 +64,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
 
 module.exports = app;

@@ -20,13 +20,23 @@ router.get('/', (req, res, next)=>{
     res.render('index', { title: 'glimpse' });
 });
 
-router.get('/home', (req, res, next)=>{
+router.get('/home', ensureAuthenticated, (req, res, next)=>{
     res.render('home', {p:JSON.parse(photo),lat,lon});
 });
 
 router.get('/privacyPolicy', (req, res, next)=>{
     res.render('privacyPolicy', { title: 'glimpse privacy policy' });
 });
+
+
+function ensureAuthenticated(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        res.redirect('/');
+    }
+}
+
 
 router.post('/getLocation', function(req, res){
     lat = req.body.lat;
@@ -80,7 +90,7 @@ router.post('/uploadPhoto', multipartMiddleware, function(req, res){
         console.log(req.files.imgInp.path);
 
         Flickr.upload(uploadOptions, FlickrOptions, function(err, result) {
-            if(err) {
+             if(err) {
                 return console.error(error);
             }
             console.log("photos uploaded", result);
@@ -89,16 +99,6 @@ router.post('/uploadPhoto', multipartMiddleware, function(req, res){
 
     res.end('IT\'S WORKING');
 });
-
-
-
-function ensureAuthenticate(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    } else {
-        res.render('/');
-    }
-}
 
 router.post('/register', function(req,res){
     var username = req.body.username;
@@ -173,7 +173,8 @@ router.post('/login', passport.authenticate('local'), function(req,res) {
 
 
 router.get('/logout', function(req,res){
-    req.logout();
+    req.session = {};
+    req.logOut();
     res.redirect('/');
 });
 
