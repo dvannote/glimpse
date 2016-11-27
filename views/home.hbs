@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top background-container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<nav class="navbar navbar-fixed-top" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <div class="navbar-inner">
         <div class="container">
             <div class="navbar-header">
@@ -27,22 +27,10 @@
     </div>
 </nav>
 
-<div class="jumbotron background-container">
+<div class="jumbotron">
     <h1>welcome</h1>
     <p class="jumboText">take a look at what's going on around you</p>
     <a data-switch-contrast><i class="fa fa-sun-o fa-3x"></i></a>
-</div>
-
-<div id="ptr">
-    <!-- Pull down arrow indicator -->
-    <span class="genericon genericon-next"></span>
-
-    <!-- CSS-based loading indicator -->
-    <div class="loading">
-        <span id="l1"></span>
-        <span id="l2"></span>
-        <span id="l3"></span>
-    </div>
 </div>
 
 <!-- Modal -->
@@ -123,32 +111,38 @@
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            <div class="modal-header">
+                <div class="captionModal"></div>
+            </div>
             <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <img src="" class="imagepreview">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="flexGrid view background-container" id="content">
+<div class="flexGrid view" id="content">
     {{#each p}}
         <div class="flex-item imageHolder pop">
             <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_n.jpg"/>
-            <div class="caption"><br>{{title}}</div>
+            <div class="caption">{{title}}</div>
         </div>
     {{/each}}
 </div>
 
-
-
-
+<a href=”#” class=”back-to-top”>
+    <i class=”fa fa-arrow-up”></i>
+</a>
 
 <script>
     $(function() {
         $('.pop').on('click', function() {
             $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+            $('.captionModal').text($(this).text());
             $('#imagemodal').modal('show');
         });
     });
@@ -236,6 +230,24 @@
 <script>
     document.querySelector('[data-switch-contrast]').addEventListener('click', function() {
         document.body.classList.toggle('nightmode');
+        $("i", this).toggleClass("fa-moon-o fa-3x  fa-sun-o fa-3x");
+    });
+</script>
+
+<script>
+    var amountScrolled = 300;
+    $(window).scroll(function() {
+        if ( $(window).scrollTop() > amountScrolled ) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
+    $('a.back-to-top').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 700);
+        return false;
     });
 </script>
 
