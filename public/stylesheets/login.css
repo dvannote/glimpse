@@ -24,18 +24,19 @@ button {
 }
 
 #discoverHeading {
-    color: white;
+    color: #000019;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #D15FEE, 0 0 30px #D15FEE, 0 0 40px  #D15FEE, 0 0 55px  #D15FEE, 0 0 75px #D15FEE;
 }
 
 #appreciateHeading {
     color: white;
+    font-family: 'Passion One', cursive;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ed3a0e, 0 0 30px  #ed3a0e, 0 0 40px  #ed3a0e, 0 0 55px  #ed3a0e, 0 0 75px #ed3a0e;
 }
 
 #focusHeading {
-    color: white;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #11b6c1, 0 0 30px  #11b6c1, 0 0 40px  #11b6c1, 0 0 55px  #11b6c1, 0 0 75px #11b6c1;
+    color: #000019;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #D15FEE, 0 0 30px #D15FEE, 0 0 40px  #D15FEE, 0 0 55px  #D15FEE, 0 0 75px #D15FEE;
 }
 
 .navbar-default {
@@ -142,7 +143,8 @@ a:focus, a:hover {
     padding-top: 50px;
     display: block;
     margin: 0 auto;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ed3a0e, 0 0 30px  #ed3a0e, 0 0 40px  #ed3a0e, 0 0 55px  #ed3a0e, 0 0 75px #ed3a0e !important;
+    font-family: 'Passion One' !important;
+    color: #000019 !important;
 }
 
 p {

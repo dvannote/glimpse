@@ -279,7 +279,7 @@ a {
 
 .glimpseNav {
     text-align: left !important;
-    color: white !important;
+    color: #000019 !important;
     font-size: 18px;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #D15FEE, 0 0 30px #D15FEE, 0 0 40px  #D15FEE, 0 0 55px  #D15FEE !important;
 }

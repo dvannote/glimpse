@@ -7,6 +7,7 @@ var router = express.Router();
 var formidable = require("formidable");
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
+var Twitter = require('twitter');
 
 var fs = require('fs');
 var photo = [];
@@ -37,6 +38,21 @@ function ensureAuthenticated(req,res,next){
     }
 }
 
+var twitterClient = new Twitter({
+    consumer_key: 'fKfjvA7B213bfggkAmVXb9HSa',
+    consumer_secret: '87S43gGgUuv90AGmj0Uwvt17GfTmvZkptVPFh8rJYLC40NDuH0',
+    access_token_key: '193983463-1Vpxjxn72Kamw2dKjXgfEq0E32XIdyNFNGBOXWEf',
+    access_token_secret: 'xUKZse3qlvIg8EOxVroEays9ITKpaVRuYpFb0rv7pGtgr'
+});
+
+var stream = twitterClient.stream('statuses/filter', {track: '38.583340,-89.906789'});
+stream.on('data', function(event) {
+    console.log(event && event.text);
+});
+
+stream.on('error', function(error) {
+    throw error;
+});
 
 router.post('/getLocation', function(req, res){
     lat = req.body.lat;
