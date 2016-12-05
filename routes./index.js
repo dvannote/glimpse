@@ -8,6 +8,9 @@ var formidable = require("formidable");
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 
+var Twitter = require('twitter');
+
+
 var fs = require('fs');
 var photo = [];
 var coords = {};
@@ -20,12 +23,37 @@ router.get('/', (req, res, next)=>{
     res.render('index', { title: 'glimpse' });
 });
 
-router.get('/home', (req, res, next)=>{
+router.get('/home', ensureAuthenticated, (req, res, next)=>{
     res.render('home', {p:JSON.parse(photo),lat,lon});
 });
 
 router.get('/privacyPolicy', (req, res, next)=>{
     res.render('privacyPolicy', { title: 'glimpse privacy policy' });
+});
+
+
+function ensureAuthenticated(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        res.redirect('/');
+    }
+}
+
+var twitterClient = new Twitter({
+    consumer_key: 'fKfjvA7B213bfggkAmVXb9HSa',
+    consumer_secret: '87S43gGgUuv90AGmj0Uwvt17GfTmvZkptVPFh8rJYLC40NDuH0',
+    access_token_key: '193983463-1Vpxjxn72Kamw2dKjXgfEq0E32XIdyNFNGBOXWEf',
+    access_token_secret: 'xUKZse3qlvIg8EOxVroEays9ITKpaVRuYpFb0rv7pGtgr'
+});
+
+var stream = twitterClient.stream('statuses/filter', {track: '38.583340,-89.906789'});
+stream.on('data', function(event) {
+    console.log(event && event.text);
+});
+
+stream.on('error', function(error) {
+    throw error;
 });
 
 router.post('/getLocation', function(req, res){
@@ -48,7 +76,7 @@ router.post('/getLocation', function(req, res){
             radius:5,
             page: 1,
             per_page: 1000,
-            safe_search: 2,
+            safe_search: 3,
         }, function(err, result) {
             if(err) throw err;
             photo = (JSON.stringify(result.photos.photo));
@@ -77,6 +105,7 @@ router.post('/uploadPhoto', multipartMiddleware, function(req, res){
             }]
         };
 
+
         console.log(req.files.imgInp.path);
 
         Flickr.upload(uploadOptions, FlickrOptions, function(err, result) {
@@ -91,14 +120,6 @@ router.post('/uploadPhoto', multipartMiddleware, function(req, res){
 });
 
 
-
-function ensureAuthenticate(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    } else {
-        res.render('/');
-    }
-}
 
 router.post('/register', function(req,res){
     var username = req.body.username;
@@ -131,12 +152,9 @@ router.post('/register', function(req,res){
             if (err) throw err;
             console.log(user);
         });
-        console.log(typeof photo);
         res.render('home',{p:JSON.parse(photo),lat,lon});
     } else {
-        res.render('/', {
-            errors: errors
-        });
+        res.render('index');
     }
 });
 
@@ -176,7 +194,8 @@ router.post('/login', passport.authenticate('local'), function(req,res) {
 
 
 router.get('/logout', function(req,res){
-    req.logout();
+    req.session = {};
+    req.logOut();
     res.redirect('/');
 });
 

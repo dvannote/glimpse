@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" id="signup">
-                        <a class="dropdown-toggle animated bounceInLeft" data-toggle="dropdown"><span class="fa fa-sign-in"></span> login</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-sign-in"></span> login</a>
                         <div class="dropdown-menu">
                             <form method="post" action="/login">
                                 <div class="ui-field-contain">
@@ -28,7 +28,7 @@
                         </div>
                     </li>
                     <li class="dropdown" id="signup">
-                        <a class="dropdown-toggle animated bounceInRight" href="#" data-toggle="dropdown" id="navLogin"><span class="fa fa-user-plus"></span> sign up</a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><span class="fa fa-user-plus"></span> sign up</a>
                         <div class="dropdown-menu">
                             {{#if errors}}
                                 {{#each errors}}
@@ -41,8 +41,11 @@
                                     <label><input type="text" name="firstName" placeholder="first name" required/> </label>
                                     <label><input type="text" name="lastName"  placeholder="last name" required/> </label>
                                     <label><input type="email" name="email" placeholder="email" autocapitalize="off" required/> </label>
-                                    <label><input type="password" name="password" placeholder="password" autocapitalize="off" required/> </label>
-                                    <label><input type="password" name="password2" placeholder="confirm password" autocapitalize="off" required/> </label>
+                                    <label><input id="password" type="password" name="password" placeholder="password" autocapitalize="off" required/> </label>
+                                    <label><input id="confirmPassword" type="password" name="password2" placeholder="confirm password" autocapitalize="off" onChange="checkPasswordMatch();" required/> </label>
+                                </div>
+                                <div class="registrationFormAlert" id="divCheckPasswordMatch">
+                                </div>
                                     <div class="buttonContainer">
                                         <button type="submit" id="getLocation">
                                             <i class="fa fa-check fa-3x"></i>
@@ -59,7 +62,7 @@
 </nav>
 
 <div class="jumbotron">
-    <h1 class="text animated flipInY">glimpse</h1>
+    <h1 class="text animated flipInY logo">glimpse</h1><br>
     <p class="animated fadeIn">a pictorial social experience</p>
 </div>
 <div id="divWrapper">
@@ -73,17 +76,12 @@
         <p class="animated bounceInRight">no friending or following,</p>
         <p class="animated bounceInRight">so you can concentrate on exploring.</p>
     </div>
-    <div class="left">
-        <h2 id="appreciateHeading" class="animated bounceInLeft">appreciate</h2>
-        <p class="animated bounceInRight">make someone's day brighter.</p>
-        <p class="animated bounceInRight">favorite and comment on their photo.</p>
-    </div>
 </div>
 
 
 <div class="parallax"></div>
 
-<div style="height:300px;background-color:black; color: white;font-size:36px;  font-family: 'Scope One', serif;">
+<div class="paraDiv">
     <div id="locationBox">
         <i class="fa fa-compass fa-5x" aria-hidden="true"></i>
         <h2>for those on the move</h2>
@@ -93,7 +91,7 @@
 
 <div class="parallax2"></div>
 
-<div style="height:300px;background-color:black; color: white;font-size:36px;  font-family: 'Scope One', serif;">
+<div class="paraDiv">
     <div id="realTimeBox">
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
         <h2>real-time</h2>
@@ -128,6 +126,22 @@
                 });
             });
         };
+
+        function checkPasswordMatch() {
+            var password = $("#password").val();
+            var confirmPassword = $("#confirmPassword").val();
+
+            if (password != confirmPassword){
+                $("#divCheckPasswordMatch").html("Might want to check those passwords again :)");
+            }
+            else {
+                $("#divCheckPasswordMatch").html("Passwords are good to go!");
+            }
+        }
+
+        $(document).ready(function () {
+            $("#password, #confirmPassword").keyup(checkPasswordMatch);
+        });
 </script>
 
 

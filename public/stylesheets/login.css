@@ -4,9 +4,8 @@ html{
 }
 
 body {
-    background: black !important;
+    background: white !important;
     padding: 0px;
-    margin: 0px;
     height:100% !important;
 }
 
@@ -25,18 +24,19 @@ button {
 }
 
 #discoverHeading {
-    color: white;
+    color: #000019;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #D15FEE, 0 0 30px #D15FEE, 0 0 40px  #D15FEE, 0 0 55px  #D15FEE, 0 0 75px #D15FEE;
 }
 
 #appreciateHeading {
     color: white;
+    font-family: 'Passion One', cursive;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ed3a0e, 0 0 30px  #ed3a0e, 0 0 40px  #ed3a0e, 0 0 55px  #ed3a0e, 0 0 75px #ed3a0e;
 }
 
 #focusHeading {
-    color: white;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #11b6c1, 0 0 30px  #11b6c1, 0 0 40px  #11b6c1, 0 0 55px  #11b6c1, 0 0 75px #11b6c1;
+    color: #000019;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #D15FEE, 0 0 30px #D15FEE, 0 0 40px  #D15FEE, 0 0 55px  #D15FEE, 0 0 75px #D15FEE;
 }
 
 .navbar-default {
@@ -111,8 +111,13 @@ form {
 nav {
    background: black;
 }
+
+a {
+   color: black;
+}
+
 a:focus, a:hover {
-    color: white !important;
+    color: #8a3ab9 !important;
 }
 
 
@@ -123,28 +128,30 @@ a:focus, a:hover {
 
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     background-color: transparent;
-    border-color: white;
+    border-color: black;
 }
 
 .jumbotron{
     height: 15%;
     color: white;
-    background-color: black;
+    background-color: white;
     font-family: 'Scope One', serif;
     font-weight: bold;
 }
 
-h1{
+.logo {
     padding-top: 50px;
     display: block;
     margin: 0 auto;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00001c, 0 0 30px  #00001c, 0 0 40px  #00001c, 0 0 55px  #00001c, 0 0 75px #00001c;
+    font-family: 'Passion One' !important;
+    color: #000019 !important;
 }
 
 p {
     font-family: 'Quicksand', sans-serif;
     font-weight: lighter;
     font-size: 18px;
+    color: black;
 }
 
 label {
@@ -153,14 +160,16 @@ label {
 }
 
 span {
-    background: #00001c;
+    background: white;
 }
 
 #locationBox {
     padding: 10px;
+    background-color: white;
 }
 
 #realTimeBox {
+    background-color: white;
     padding: 40px;
 }
 
@@ -183,8 +192,8 @@ span {
 
 #divWrapper {
     width: 100%;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     font-family: 'Scope One', serif;
     font-weight: bold;
     padding-top: 50px;
@@ -226,6 +235,13 @@ input:-moz-placeholder { /* Firefox 4 - 18 */
 
 input:focus{
     box-shadow: #11b6c1;
+}
+
+.paraDiv {
+    height:300px;
+    background-color:white;
+    font-size:36px;
+    font-family: 'Scope One', serif;
 }
 
 .parallax {
