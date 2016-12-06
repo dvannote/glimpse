@@ -4,7 +4,7 @@ var certs = require('./getCertificate');
 var https = require('https');
 var app = require('../app');
 
-var httpsServer = https.createServer(certs.credentials, app).listen(3000);
+var httpsServer = https.createServer(certs.credentials, app).listen(443);
 
 'use strict';
 
